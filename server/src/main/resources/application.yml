@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: ${zoo.datasource.driver-class-name}
+    url: jdbc:mysql://${zoo.datasource.host}:${zoo.datasource.port}/${zoo.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${zoo.datasource.username}
+    password: ${zoo.datasource.password}
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.example.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+zoo:
+  jwt:
+    admin-secret-key: adminKey
+    admin-token-name: admin
+    admin-ttl: 720000000
+
+    employee-secret-key: employeeKey
+    employee-token-name: employee
+    employee-ttl: 720000000
+
+    user-secret-key: userKey
+    user-token-name: user
+    user-ttl: 72000000

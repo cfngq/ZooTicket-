@@ -1,0 +1,25 @@
+package org.example.vo;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@ApiModel(description = "员工登录返回的数据格式")
+public class AdminLoginVO implements Serializable {
+
+    @ApiModelProperty("管理员账户")
+    private String userName;
+    @ApiModelProperty("姓名")
+    private String name;
+    @ApiModelProperty("jwt令牌")
+    private String token;
+}
